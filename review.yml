@@ -1,0 +1,297 @@
+aid: autogrid
+name: AutoGrid
+review:
+  question: Does AutoGrid publish a public, documented API — and does any energy data
+    mandate apply to it?
+  answer: false
+  date: '2026-07-27'
+  reviewer: API Evangelist
+  tier: grid-tech-derms
+  homeMarket: United States
+  specsHarvested: 0
+  openapiHarvested: false
+  developerPortal: ''
+  portalConfirmed: false
+
+identity:
+  legalName: AutoGrid Systems, Inc.
+  founded: 2011
+  founder: Amit Narayan
+  headquarters: Redwood City / Redwood Shores, California, United States
+  headquartersSource: |
+    github.com/auto-grid organization profile (fetched 2026-07-27, HTTP 200):
+    location "Redwood Shores, CA", blog "http://auto-grid.com",
+    email "info@auto-grid.com", org created 2011-04-06.
+  segment: Grid technology — DERMS, virtual power plants, automated demand response
+  flagshipProduct: AutoGrid Flex (AI/ML DER management and VPP platform)
+  ownership: |
+    Schneider Electric held/controlled AutoGrid and then sold it to Uplight. The
+    acquisition was announced 2023-12-14 and closed in early 2024. Verified at
+    https://uplight.com/press/uplight-to-acquire-autogrid/ (HTTP 200, fetched
+    2026-07-27), which states the deal, the Schneider Electric ownership, 700+
+    combined employees, and 8,300 MW of flexible resources under management.
+  currentStatus: |
+    AutoGrid no longer operates an independent web or developer presence. Its
+    domain is a redirect stub pointing at its acquirer.
+
+mandate:
+  regime: none
+  regimeRationale: |
+    The energy sector's data-sharing obligations attach to DATA CUSTODIANS —
+    utilities, retailers, and metering parties. Green Button (NAESB REQ.21 / ESPI)
+    is a voluntary US standard adopted by utilities; Ontario mandates it by
+    regulation for Ontario distributors; Australia extended the Consumer Data Right
+    to energy for designated retailers and AEMO. AutoGrid is none of these. It is a
+    US software vendor that sells DERMS/VPP orchestration software TO utilities. No
+    Green Button obligation, no CDR designation, no smart-meter infrastructure
+    mandate reaches it.
+  status: not-applicable
+  statusRationale: |
+    No obligation was found, and AutoGrid makes no compliance claim that could be
+    tested. This is a genuine not-applicable, NOT an unverified claim: there is no
+    press release, no compliance page, and no regulator listing to check, because
+    the company no longer publishes a website at all. Searched the Green Button
+    Alliance certification/testing material (greenbuttonalliance.org/testing,
+    fetched 2026-07-27) — neither AutoGrid nor Uplight appears as a certified DMD
+    or CMD implementation.
+  claimVsImplementation: |
+    Nothing to separate. There is no mandate claim and no implementation. The
+    mandate/implementation gap that matters in this sector simply does not arise
+    for a vendor that is not a covered entity.
+
+dataStandard:
+  implemented: no standard reference found
+  detail: |
+    No first-party documentation asserting conformance to Green Button / ESPI,
+    OpenADR, IEEE 2030.5, CTA-2045, IEC CIM 61968/61970, OCPP, or OCPI could be
+    reached. AutoGrid's own site is retired to a redirect stub and the successor's
+    developer documentation is behind a login. Third-party trade commentary
+    associates DERMS aggregators of this class (naming Uplight/AutoGrid alongside
+    EnergyHub) with OpenADR + IEEE 2030.5 + CTA-2045 certification requirements for
+    utility program enrollment, but that is commentary, not a published contract or
+    a conformance statement, and it is recorded here as unverified context only.
+
+dataSplit:
+  consumerDataAPI: false
+  consumerDataDetail: |
+    No documented way for a third party to obtain an individual customer's usage or
+    billing data from AutoGrid. AutoGrid is a business-to-utility platform; the
+    customer relationship, the meter, and the billing data all sit with its utility
+    clients.
+  marketDataOpen: false
+  marketDataDetail: |
+    AutoGrid publishes no anonymous grid, market, system, or emissions data. There
+    is no data portal, no open dataset, and no downloadable feed. This is the
+    opposite posture from the ISO/RTO and EIA layer of the same sector — the split
+    here is not "open market data, closed consumer data", it is closed on both
+    sides, which is the normal shape for a private grid-tech vendor.
+
+access:
+  gate: none-published
+  gateDetail: |
+    AutoGrid itself publishes nothing — there is no signup, no application form, no
+    key issuance path, no contact-for-access page, because there is no site. A
+    developer who wants this capability today must become a Uplight customer or
+    partner: docs.uplight.com is a live ReadMe hub whose every content route
+    redirects anonymous visitors to dash.readme.com/to/uplight for login, and
+    api.uplight.com rejects anonymous calls with HTTP 401. That successor gate is
+    partner-only; it is recorded as context, not as an AutoGrid surface.
+  gated: true
+  selfServeAvailable: false
+
+auth:
+  model: not published
+  detail: |
+    No authentication scheme is documented for AutoGrid. The successor host
+    api.uplight.com returns HTTP 401 with body
+    {"errors":[{"message":"Invalid or no token provided"}]} — a bearer-token style
+    rejection — but no scheme, no scopes, and no token issuance flow are publicly
+    documented, so nothing beyond "a token is required" can be asserted.
+  openidConfiguration: |
+    https://auto-grid.com/.well-known/openid-configuration returned HTTP 200 but
+    with Content-Type text/html and the same 270-byte redirect stub as every other
+    path — it is a catch-all response, NOT an OpenID Connect discovery document.
+    No OIDC metadata exists.
+
+tlsFinding: |
+  auto-grid.com presents an EXPIRED Let's Encrypt certificate. openssl s_client
+  (2026-07-27) reports depth=0 CN=auto-grid.com, issuer C=US/O=Let's Encrypt/CN=E8,
+  NotBefore 2026-04-25, NotAfter 2026-07-24, verify error num=10 "certificate has
+  expired". SANs: auto-grid.com, blog.auto-grid.com, www.auto-grid.com. Plain
+  `curl https://auto-grid.com` fails with exit code 60; only `curl -k` succeeds.
+  The domain is parked and unmaintained.
+
+probes:
+  - url: https://auto-grid.com/
+    status: 200
+    note: TLS verification FAILS (expired cert); with -k returns 270-byte meta-refresh
+      to https://uplight.com — "This domain is owned by Uplight". Last-Modified
+      2022-12-07.
+  - url: http://auto-grid.com/
+    status: 301
+    note: Redirects to https://auto-grid.com/
+  - url: https://www.auto-grid.com/
+    status: 200
+    note: Same redirect stub (cert-insecure).
+  - url: https://auto-grid.com/developers
+    status: 200
+    note: Catch-all — identical 270-byte redirect stub, not a developer portal.
+  - url: https://auto-grid.com/api
+    status: 200
+    note: Catch-all redirect stub.
+  - url: https://auto-grid.com/docs
+    status: 200
+    note: Catch-all redirect stub.
+  - url: https://auto-grid.com/robots.txt
+    status: 200
+    note: Content-Type text/html — catch-all redirect stub, not a robots file.
+  - url: https://auto-grid.com/openapi.json
+    status: 200
+    note: Content-Type text/html — catch-all redirect stub, NOT an OpenAPI document.
+      Does not parse as JSON.
+  - url: https://auto-grid.com/.well-known/openid-configuration
+    status: 200
+    note: Content-Type text/html — catch-all redirect stub, not OIDC metadata.
+  - url: https://auto-grid.com/favicon.ico
+    status: 200
+    note: 270 bytes of text/html — no real brand icon available.
+  - url: https://developer.auto-grid.com/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://developers.auto-grid.com/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://api.auto-grid.com/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://data.auto-grid.com/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://portal.auto-grid.com/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://app.auto-grid.com/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://flex.auto-grid.com/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://partner.auto-grid.com/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://blog.auto-grid.com/
+    status: 000
+    note: In cert SAN list but does not resolve.
+  - url: http://docs.auto-grid.com/
+    status: 404
+    note: CNAME to ghs.google.com (142.250.188.19); Google "Error 404 (Not Found)"
+      page. HTTPS handshake fails (000).
+  - url: https://api.github.com/orgs/auto-grid
+    status: 200
+    note: AutoGrid Systems org, created 2011-04-06, Redwood Shores CA, 3 public repos.
+  - url: https://api.github.com/orgs/auto-grid/repos
+    status: 200
+    note: 3 repos — external-storage, nifi, null — all forks of unrelated third-party
+      projects. No specs, no SDKs, no API artifacts.
+  - url: https://uplight.com/
+    status: 200
+    note: Acquirer's live site.
+  - url: https://uplight.com/developers
+    status: 404
+  - url: https://uplight.com/api
+    status: 404
+  - url: https://uplight.com/docs
+    status: 404
+  - url: https://developer.uplight.com/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://developers.uplight.com/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://docs.uplight.com/
+    status: 200
+    note: ReadMe (SuperHub) documentation portal. Landing page renders, but the only
+      in-page link is /login?redirect_uri=/ — content is gated.
+  - url: https://docs.uplight.com/developer/reference
+    status: 200
+    note: Redirects to https://dash.readme.com/to/uplight?redirect=%2Fdeveloper%2Freference
+      — LOGIN REQUIRED. No public API reference.
+  - url: https://docs.uplight.com/developer/docs
+    status: 200
+    note: Redirects to dash.readme.com login. Gated.
+  - url: https://docs.uplight.com/developer/page/contact-support
+    status: 200
+    note: Redirects to dash.readme.com login. Gated.
+  - url: https://api.uplight.com/
+    status: 401
+    note: 'application/json body: {"errors":[{"message":"Invalid or no token provided"}]}
+      — token required, no public issuance path documented.'
+  - url: https://uplight.com/press/uplight-to-acquire-autogrid/
+    status: 200
+    note: Acquisition press release — announced 2023-12-14, close expected early
+      2024, terms undisclosed, 8,300 MW flexible resources, 700+ combined employees.
+  - url: https://uplight.com/resources/derms/
+    status: 200
+    note: "\"DERMS Solution Guide - AutoGrid\" marketing resource. Product context\
+      \ only — no endpoints, no contract."
+  - url: https://uplight.com/uplight-acquires-autogrid/
+    status: 200
+  - url: https://en.wikipedia.org/wiki/AutoGrid_Systems
+    status: 404
+    note: No Wikipedia article at this title.
+  - url: https://www.linkedin.com/company/autogrid-systems
+    status: 999
+    note: LinkedIn bot block — could not verify the company slug, so no LinkedIn
+      property was recorded in apis.yml.
+  - url: https://www.greenbuttonalliance.org/testing
+    status: 403 (curl) / 200 (rendered fetch)
+    note: Green Button certification program page. Neither AutoGrid nor Uplight is
+      named as a certified DMD or CMD implementation.
+
+findings:
+  summary: |
+    AutoGrid has no public API surface of any kind. This is a built-stub profile:
+    identity is solid and well-evidenced, the API surface is genuinely empty.
+
+    The company was a real and significant grid-tech player — founded 2011 by Amit
+    Narayan out of Stanford smart-grid research, AutoGrid Flex was one of the
+    better-known AI DERMS/VPP platforms sold to investor-owned utilities. It was
+    absorbed by Schneider Electric and then sold on to Uplight in a deal that closed
+    in early 2024. What remains at auto-grid.com is a 270-byte redirect stub last
+    modified 2022-12-07, served on a Let's Encrypt certificate that expired on
+    2026-07-24. Every path on the domain returns that same stub with HTTP 200,
+    including /openapi.json and /.well-known/openid-configuration, which is exactly
+    the trap this bootstrap is meant to avoid: a 200 is not a document. Each of
+    those was opened and confirmed to be the redirect HTML, and none was saved.
+
+    On the sector's central question, AutoGrid is the clean negative case. A data
+    mandate is not an implementation — but here there is not even a mandate. Green
+    Button, the CDR, and Ontario's regulation all bind data custodians. AutoGrid is
+    a vendor that consumes utility and device data under commercial contract. It is
+    therefore mandate_regime=none and mandate_status=not-applicable, with no claim
+    to test and no register to check.
+
+    Both halves of the consumer/market split are closed. No consumer usage or
+    billing API. No open grid or market data. The only route to this capability
+    today runs through Uplight's gated ReadMe hub and a token-required
+    api.uplight.com, i.e. partner/customer only.
+  hasPublicAPI: false
+  hasDeveloperPortal: false
+  hasOpenAPI: false
+  hasPublicDocs: false
+  hasSDKs: false
+  hasSandbox: false
+  brandIconFound: false
+  brandIconNote: |
+    auto-grid.com/favicon.ico returns the 270-byte redirect HTML, not an image. The
+    groq placeholder image URL was used per the bootstrap convention.
+  recommendation: |
+    Keep as a stub with an accurate acquisition trail. If this capability needs to
+    be represented as a live API in the catalog, it belongs under an Uplight
+    provider record, not AutoGrid — and even there the surface is gated and would
+    have to be recorded as partner-only with no harvestable contract. Re-check
+    docs.uplight.com periodically in case Uplight opens a public API reference.
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
