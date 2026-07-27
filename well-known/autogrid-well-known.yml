@@ -1,0 +1,44 @@
+generated: '2026-07-27'
+method: probed
+source: live probes of https://auto-grid.com on 2026-07-27
+note: >
+  NOTHING is published at AutoGrid's /.well-known/ discovery surface. Every path below
+  returns HTTP 200 - and that 200 is a trap: auto-grid.com is a parked domain that answers
+  EVERY request, valid or not, with the same 270-byte text/html meta-refresh stub
+  ("This domain is owned by Uplight"). A 200 here is not a document. Each response body was
+  read and byte-compared to the stub; none is a security.txt, an OIDC discovery document, an
+  OAuth authorization-server metadata document, an api-catalog or an ai-plugin manifest.
+  No raw files were saved because there is nothing to save, and NO WellKnown / SecurityTxt /
+  APICatalog pointer is emitted in apis.yml - emitting one for a parked-domain catch-all
+  would be a fabricated discovery signal.
+  TLS note: the probes require -k / verify=false because the auto-grid.com certificate
+  expired 2026-07-24; a conforming client fails closed before reading any of these bodies.
+hosts:
+- host: https://auto-grid.com
+  role: retired AutoGrid corporate domain (parked, meta-refresh to uplight.com)
+  catch_all: true
+  catch_all_evidence: >
+    Identical 270-byte text/html body with Last-Modified 2022-12-07 returned for
+    /.well-known/*, /openapi.json, /robots.txt, /favicon.ico, /docs, /api and /developers.
+  documents:
+  - {path: /.well-known/security.txt, status: 200, content_type: text/html, valid: false, reason: parked-domain stub}
+  - {path: /.well-known/openid-configuration, status: 200, content_type: text/html, valid: false, reason: parked-domain stub}
+  - {path: /.well-known/oauth-authorization-server, status: 200, content_type: text/html, valid: false, reason: parked-domain stub}
+  - {path: /.well-known/oauth-protected-resource, status: 200, content_type: text/html, valid: false, reason: parked-domain stub}
+  - {path: /.well-known/api-catalog, status: 200, content_type: text/html, valid: false, reason: parked-domain stub}
+  - {path: /.well-known/ai-plugin.json, status: 200, content_type: text/html, valid: false, reason: parked-domain stub}
+  - {path: /.well-known/assetlinks.json, status: 200, content_type: text/html, valid: false, reason: parked-domain stub}
+  - {path: /llms.txt, status: 200, content_type: text/html, valid: false, reason: parked-domain stub}
+  - {path: /sitemap.xml, status: 200, content_type: text/html, valid: false, reason: parked-domain stub}
+- host: https://api.auto-grid.com
+  role: expected API host
+  documents: []
+  note: DNS does not resolve (curl exit 6). Same for developer., developers., data., portal., app., flex. and partner.
+- host: https://www.auto-grid.com
+  role: www alias, in the certificate SAN list
+  documents: []
+  note: >
+    Archived 2023-05-31 Wayback captures show /.well-known/ai-plugin.json, /assetlinks.json
+    and /gpc.json all returning 404 while the site was still live - so nothing was published
+    at this surface even before the domain was parked.
+documents_saved: []

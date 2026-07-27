@@ -1,0 +1,153 @@
+generated: '2026-07-27'
+method: searched
+source: >
+  SunSpec Alliance certified-product page and certificate (sunspec.org), OpenADR Alliance
+  certified-product registry (products.openadr.org) and the signed Declarations of Conformity
+  and PICS documents it links, and the AWS Industries blog post co-authored with AutoGrid.
+  All fetched 2026-07-27.
+note: >
+  AutoGrid publishes NO OpenAPI, no developer portal and no public REST contract - that
+  finding from the first round stands. But it is wrong to record AutoGrid as having no
+  machine-readable contract at all: its contract is expressed as PROTOCOL conformance, not
+  as a vendor spec. AutoGrid Systems is a certified OpenADR 2.0a and 2.0b VTN (server) and a
+  SunSpec-certified IEEE 2030.5 / CSIP server, and the certifying bodies publish the
+  conformance evidence - signed Declarations of Conformity, Protocol Implementation
+  Conformance Statements, and a lab test-results sheet. That evidence names the exact
+  services, transports, payloads, security profiles and test cases the AutoGrid Flex / DROMS
+  server implements. This file records it; the two companion files carry the detail. This
+  supersedes the first round's dataStandard finding of "no standard reference found", which
+  was based on the retired auto-grid.com website alone.
+standards:
+- id: openadr-2.0a
+  name: OpenADR 2.0a
+  conforms: true
+  role: VTN (server)
+  status: certified
+  certifying_body: OpenADR Alliance
+  product: AutoGrid DROMS (Demand Response Optimization and Management System)
+  registry: https://products.openadr.org/product/autogrid-systems-inc-autogrid-droms/
+  evidence: >
+    OpenADR Alliance certified-product registry entry (HTTP 200, 2026-07-27): Product Type
+    "VTN (server)", Server Type "Cloud Based", Firmware 1.7, OpenADR Profile 2.0a, Security
+    "Standard", Transport "Simple HTTP + XMPP", "Pull and Push" mode. The linked signed
+    Declaration of Conformity (dated 8 November 2012, Abhishek Bahl, Director-Product
+    Management) declares VTN, Pull Mode, Push Mode, ECC and RSA for product "OpenDR Server
+    2.0", tested against OpenADR 2.0a Profile Spec version 1.
+  detail: conformance/autogrid-openadr-pics.yml
+- id: openadr-2.0b
+  name: OpenADR 2.0b
+  conforms: true
+  role: VTN (server)
+  status: certified
+  certifying_body: OpenADR Alliance
+  product: OpenDR Server 2.0
+  registry: https://products.openadr.org/product/autogrid-systems-inc-opendr-server-2-0-2/
+  evidence: >
+    OpenADR Alliance certified-product registry entry (HTTP 200, 2026-07-27): VTN (server),
+    Cloud Based, Firmware 1, Profile 2.0b, Simple HTTP + XMPP, Pull and Push. The signed
+    Declaration of Conformity (14 August 2013) and the PICS (version 1.0.1, valid for
+    certification as of 28 July 2013) declare full mandatory-capability conformance for the
+    VTN role, both A and B profiles, all three transports, the five EI services, SHA2
+    security, and B-schema validation of every VTN payload.
+  detail: conformance/autogrid-openadr-pics.yml
+- id: ieee-2030-5-csip
+  name: IEEE 2030.5-2018 / CSIP (Common Smart Inverter Profile)
+  conforms: true
+  role: Server
+  status: certified
+  certificate_number: CS-000074
+  certifying_body: SunSpec Alliance
+  test_laboratory: Intertek
+  product: AutoGrid Flex (model "Flex 2030.5 server", software ieee-2030-5 v1.0)
+  tested: '2023-12-12'
+  awarded: '2024-01-22'
+  registry: https://sunspec.org/contributing-members/autogrid-2/
+  certificate: https://sunspec.org/wp-content/uploads/2009/03/AutoGrid_Cert_CS-000074.pdf
+  pics: https://sunspec.org/wp-content/uploads/2009/03/AutoGrid_CSIP_PICS_CS000074.xlsx
+  evidence: >
+    SunSpec Alliance certificate CS-000074 (PDF fetched 2026-07-27) certifies AutoGrid
+    Systems, Inc. for product "AutoGrid Flex", model "Flex 2030.5 server", SunSpec device
+    category Server, tested by Intertek 12 December 2023 and awarded 22 January 2024. The
+    published PICS workbook records 64 Pass results and 2 Not Applicable across the CSIP
+    test suite, with the software running as a cloud service on AWS and Azure.
+  detail: conformance/autogrid-ieee-2030-5-csip-pics.yml
+- id: ieee-1547
+  conforms: unknown
+  evidence: >
+    No certification, declaration or first-party statement found. The IEEE 2030.5 CSIP
+    certification exercises smart-inverter control modes derived from IEEE 1547-2018
+    (volt-var, volt-watt, frequency-watt, ride-through), but AutoGrid makes no IEEE 1547
+    conformance claim of its own.
+- id: soc2
+  conforms: claimed
+  claimed_by: AutoGrid (co-authored AWS Industries blog post, 4 January 2021)
+  historical: true
+  evidence: https://aws.amazon.com/blogs/industries/how-autogrid-supports-compliance-using-aws-cloud-security-services/
+  note: >
+    The AWS post states AutoGrid complies with "SOC 2, NERC-CIP, ISO 27001, NIST 800-53,
+    GDPR" and describes obtaining a NERC CIP attestation from a third-party auditor. No
+    audit report, no certificate number and no trust page were ever published, and the
+    company no longer operates a website, so this is recorded as a dated CLAIM, not a
+    verified certification.
+- id: nerc-cip
+  conforms: claimed
+  claimed_by: AutoGrid (AWS Industries blog post, 4 January 2021)
+  historical: true
+  evidence: https://aws.amazon.com/blogs/industries/how-autogrid-supports-compliance-using-aws-cloud-security-services/
+  note: Third-party-auditor attestation described; no attestation letter published.
+- id: iso-27001
+  conforms: claimed
+  historical: true
+  evidence: https://aws.amazon.com/blogs/industries/how-autogrid-supports-compliance-using-aws-cloud-security-services/
+- id: nist-800-53
+  conforms: claimed
+  historical: true
+  evidence: https://aws.amazon.com/blogs/industries/how-autogrid-supports-compliance-using-aws-cloud-security-services/
+- id: gdpr
+  conforms: claimed
+  historical: true
+  evidence: https://aws.amazon.com/blogs/industries/how-autogrid-supports-compliance-using-aws-cloud-security-services/
+- id: openapi
+  conforms: false
+  evidence: >
+    No OpenAPI or Swagger document exists on any AutoGrid host. auto-grid.com answers HTTP
+    200 with an identical 270-byte meta-refresh stub for every path including /openapi.json,
+    /swagger.json and /api-docs; every api/docs/developer subdomain fails to resolve; the
+    Wayback Machine holds no /api or /developer capture, and the single docs.auto-grid.com
+    capture (2019-08-05) is a 302 to Google Drive, i.e. a Workspace alias, not an API portal.
+- id: graphql
+  conforms: false
+  evidence: No GraphQL endpoint on any resolving AutoGrid host.
+- id: mcp
+  conforms: false
+  evidence: No MCP server published by AutoGrid or by its acquirer for this platform.
+- id: oauth2
+  conforms: false
+  evidence: >
+    No OAuth 2.0 surface. https://auto-grid.com/.well-known/openid-configuration returns the
+    catch-all HTML stub, not OIDC metadata. Both certified protocol surfaces authenticate
+    with mutual TLS x.509 client certificates (OpenADR RSA/ECC ciphers, IEEE 2030.5 device
+    certificates), not with bearer tokens or API keys.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No HTTP/JSON API published; OpenADR and IEEE 2030.5 carry their own XML error models.
+- id: green-button-espi
+  conforms: false
+  evidence: >
+    Neither AutoGrid nor Uplight appears in the Green Button Alliance certified-implementation
+    listing (greenbuttonalliance.org/testing, checked 2026-07-27). AutoGrid is not a data
+    custodian, so no Green Button obligation attaches - see review.yml mandate.
+summary:
+  certified_standards: [openadr-2.0a, openadr-2.0b, ieee-2030-5-csip]
+  claimed_only: [soc2, nerc-cip, iso-27001, nist-800-53, gdpr]
+  machine_readable_contract: >
+    Protocol conformance statements only (OpenADR PICS, IEEE 2030.5 CSIP PICS). No vendor
+    API description of any kind.
+  authentication_model: mutual TLS with x.509 client certificates (both certified surfaces)
+  transports: [Simple HTTP (pull), Simple HTTP (push), XMPP (push), HTTPS/TLS 1.2 (IEEE 2030.5)]
+  caveat: >
+    Every certification predates or coincides with the Uplight acquisition (closed early
+    2024). The certifications are published against the legal entity AutoGrid Systems, Inc.
+    and remain listed in both registries as of 2026-07-27, but the products are now sold
+    under Uplight and the certification records are not being refreshed under the AutoGrid
+    brand.

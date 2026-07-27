@@ -1,0 +1,109 @@
+generated: '2026-07-27'
+method: searched
+source: >
+  https://products.openadr.org/product/autogrid-systems-inc-autogrid-droms/ and
+  https://products.openadr.org/product/autogrid-systems-inc-opendr-server-2-0-2/ plus the
+  signed Declarations of Conformity and PICS documents they link on
+  openadr.memberclicks.net. All fetched 2026-07-27 (HTTP 200).
+note: >
+  AutoGrid holds two OpenADR Alliance certifications, both for the VTN (server) role - the
+  utility/aggregator side of automated demand response. These entries are still live in the
+  OpenADR certified-product database. The PICS declarations below are transcribed from the
+  published PDFs, which are mirrored under conformance/documents/. This is a protocol
+  conformance statement, not an API description: OpenADR 2.0 defines the payload schema and
+  service semantics, so the PICS says WHICH parts of that fixed contract AutoGrid implements.
+certifications:
+- id: openadr-2.0b
+  profile: 2.0b
+  role: VTN (server)
+  product_brand: OpenDR Server 2.0
+  product_model: OpenDR Server 2.0
+  firmware: '1'
+  registry: https://products.openadr.org/product/autogrid-systems-inc-opendr-server-2-0-2/
+  declaration_of_conformity:
+    url: https://openadr.memberclicks.net/assets/CertificationDocs/AutoGrid/AutoGrid_DoC.pdf
+    mirror: conformance/documents/autogrid-openadr-2.0b-declaration-of-conformity.pdf
+    signed_by: Abhishek Bahl, Director - Product Management, AutoGrid Systems Inc.
+    signed_date: '2013-08-14'
+    manufacturer_address: 255 Shoreline Drive, Suite 350, Redwood Shores, CA 94065
+    tested_profile_spec_version: '1.0'
+    declared: [VTN, Pull Mode, Push Mode, ECC, RSA, Simple HTTP, XMPP]
+  pics:
+    url: https://openadr.memberclicks.net/assets/CertificationDocs/AutoGrid/AutoGrid_PICS.pdf
+    mirror: conformance/documents/autogrid-openadr-2.0b-pics.pdf
+    version: 1.0.1
+    valid_for_certification_as_of: '2013-07-28'
+    global_statement_of_conformance: >
+      All mandatory capabilities supported for the indicated roles - answered Yes.
+    roles: {VEN_full_function: false, VEN_energy_reporting_only: false, VTN: true}
+    profile_support: {A: true, B: true}
+    transports:
+    - {transport: SimpleHTTP - Pull, supported: true}
+    - {transport: SimpleHTTP - Push, supported: true}
+    - {transport: XMPP - Push, supported: true}
+    services:
+    - {service: EiEvent, status: C-1, supported: true}
+    - {service: EiOpt, status: C-1, supported: true}
+    - {service: EiReport, status: M, supported: true}
+    - {service: EiRegisterParty, status: M, supported: true}
+    - {service: OadrPoll, status: C-2, supported: true}
+    security:
+    - {profile: SHA1 Security (TLS 1.0/1.1, x.509 SHA1, RSA and ECC SHA1 ciphers), role: VTN, supported: false}
+    - {profile: SHA2 Security (TLS 1.2, x.509 SHA2, RSA and ECC SHA2 ciphers, SASL_EXTERNAL for XMPP), role: VTN, supported: true}
+    - {profile: XML Signatures, role: VEN/VTN, supported: false}
+    payload_schema_conformance:
+      note: >
+        Payloads the VTN generates, each declared as validating against the OpenADR B Profile
+        schema. VEN-role rows in the published PICS are left unmarked because AutoGrid was
+        certified as a VTN only.
+      validates_against_b_schema:
+      - oadrResponse
+      - oadrCancelPartyRegistration
+      - oadrCanceledPartyRegistration
+      - oadrRegisterReport
+      - oadrRegisteredReport
+      - oadrCreateReport
+      - oadrCreatedReport
+      - oadrUpdateReport
+      - oadrUpdatedReport
+      - oadrCancelReport
+      - oadrCanceledReport
+      - oadrCreatedOpt
+      - oadrDistributeEvent
+      - oadrCreatedPartyRegistration
+      - oadrRequestReregistration
+- id: openadr-2.0a
+  profile: 2.0a
+  role: VTN (server)
+  product_brand: AutoGrid DROMS
+  product_model: AutoGrid DROMS
+  firmware: '1.7'
+  registry: https://products.openadr.org/product/autogrid-systems-inc-autogrid-droms/
+  registry_fields:
+    business_type: Agricultural, Commercial, Industrial, Residential, Small/Medium Business (SMB)
+    product_type: VTN (server)
+    server_type: Cloud Based
+    security: Standard
+    transport_protocol: Simple HTTP + XMPP
+    pull_and_push_mode: Pull and Push
+  declaration_of_conformity:
+    url: https://openadr.memberclicks.net/assets/CertificationDocs/AutoGrid/20a/DeclarationOfConformity_AutoGrid_signed_off.pdf
+    mirror: conformance/documents/autogrid-openadr-2.0a-declaration-of-conformity.pdf
+    signed_by: Abhishek Bahl, Director - Product Management, AutoGrid Systems Inc.
+    signed_date: '2012-11-08'
+    manufacturer_address: 960 San Antonio Road, Suite 201, Palo Alto, CA 94303
+    product_name_or_identifier: OpenDR Server 2.0
+    tested_profile_spec_version: '1'
+    declared: [VTN, Pull Mode, Push Mode, ECC, RSA]
+  pics:
+    url: https://openadr.memberclicks.net/assets/CertificationDocs/AutoGrid/20a/OADR_2_0a_PICS_for_certification_AutoGrid.pdf
+    mirror: conformance/documents/autogrid-openadr-2.0a-pics.pdf
+registry_description: >
+  "AutoGrid DROMS (Demand Response Optimization and Management System) is the world's most
+  advanced demand management system. Harnessing Big Data analytics, cloud computing services
+  and open standards such as OpenADR, DROMS minimizes the cost of demand management systems
+  while expanding their functionality and user base. DROMS' embedded OpenDR 2.0 server is
+  scalable to millions of endpoints, highly secure, and can be easily integrated into any
+  third party system through web-services APIs." - AutoGrid's own copy in the OpenADR
+  certified-product registry. The "web-services APIs" referred to here were never publicly
+  documented; the only publicly specified interface is the OpenADR 2.0 protocol itself.

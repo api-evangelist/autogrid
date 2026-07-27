@@ -16,6 +16,10 @@ AutoGrid Systems is a United States grid-technology company founded in 2011 by A
 - Virtual Power Plant
 - Demand Response
 - Acquired
+- OpenADR
+- IEEE 2030.5
+- Smart Grid
+- Conformance
 
 ## Timestamps
 
@@ -36,13 +40,35 @@ The product now lives inside Uplight. `docs.uplight.com` is a live ReadMe hub, b
 
 - **Mandate regime:** none. AutoGrid is a software vendor and DER orchestrator, not a utility, retailer, or metering data custodian. Green Button / NAESB ESPI obligations attach to data custodians; the Australian Consumer Data Right and Ontario's Green Button regulation do not reach a US DERMS vendor.
 - **Mandate status:** not-applicable. No obligation was found, and none is claimed by the company.
-- **Data standard:** no first-party standard reference found. Third-party commentary associates DERMS aggregators of this class with OpenADR, IEEE 2030.5, and CTA-2045, but no AutoGrid or Uplight documentation confirming conformance was reachable — the AutoGrid site is retired and the Uplight docs are gated.
+- **Data standard:** OpenADR 2.0a + 2.0b (VTN/server) and IEEE 2030.5-2018 / CSIP (server) — **certified, with published evidence** (see below). Not found: CTA-2045, IEC CIM 61968/61970, OCPP, OCPI, Green Button/ESPI.
 - **Consumer data API:** no. Nothing lets a third party obtain an individual customer's usage or billing data from AutoGrid.
 - **Open market data:** no. AutoGrid publishes no grid, market, or system data anonymously.
 - **Access gate:** none-published for AutoGrid itself; the successor product is reached only through a Uplight partner/customer login.
 
+## Certified Protocol Surface
+
+AutoGrid published no API description of its own, but its contract exists as **protocol conformance**, and the certifying bodies still publish it:
+
+| Standard | Role | Product | Evidence |
+|---|---|---|---|
+| OpenADR 2.0a | VTN (server) | AutoGrid DROMS (firmware 1.7, cloud) | [OpenADR registry](https://products.openadr.org/product/autogrid-systems-inc-autogrid-droms/) · DoC signed 2012-11-08 |
+| OpenADR 2.0b | VTN (server) | OpenDR Server 2.0 | [OpenADR registry](https://products.openadr.org/product/autogrid-systems-inc-opendr-server-2-0-2/) · PICS v1.0.1 · DoC signed 2013-08-14 |
+| IEEE 2030.5-2018 / CSIP | Server | AutoGrid Flex ("Flex 2030.5 server") | [SunSpec certificate CS-000074](https://sunspec.org/wp-content/uploads/2009/03/AutoGrid_Cert_CS-000074.pdf) · Intertek, tested 2023-12-12, awarded 2024-01-22 |
+
+The OpenADR 2.0b PICS declares both A and B profiles, SimpleHTTP-Pull, SimpleHTTP-Push and XMPP-Push transports, the EiEvent / EiOpt / EiReport / EiRegisterParty / OadrPoll services, SHA2 security (TLS 1.2, x.509 SHA2, RSA + ECC), and B-schema validation of all fifteen VTN-generated payloads. The IEEE 2030.5 PICS workbook records 64 passing test cases and 2 not-applicable across aggregator operation, DER identification and group management, the full inverter-control set, events, alarms, meter reading, subscriptions and maintenance. Both surfaces authenticate with **mutual TLS x.509 client certificates** — no API key, no OAuth.
+
+Captured in [`conformance/`](conformance/), with the certificate, PICS and Declaration-of-Conformity PDFs mirrored under [`conformance/documents/`](conformance/documents/).
+
 ## Common Properties
 
+- [Protocol conformance profile](conformance/autogrid-conformance.yml)
+- [IEEE 2030.5 / CSIP PICS + lab test results](conformance/autogrid-ieee-2030-5-csip-pics.yml)
+- [OpenADR 2.0a / 2.0b PICS + Declarations of Conformity](conformance/autogrid-openadr-pics.yml)
+- [Lifecycle (acquisition timeline, retirement)](lifecycle/autogrid-lifecycle.yml)
+- [Packages — none published](packages/autogrid-packages.yml)
+- [Well-known probes — nothing published](well-known/autogrid-well-known.yml)
+- [Domain security probe](security/autogrid-domain-security.yml)
+- [llms.txt](llms/autogrid-llms.txt)
 - [Website](https://auto-grid.com/)
 - [Parent Company](https://uplight.com/)
 - [GitHub Organization](https://github.com/auto-grid)

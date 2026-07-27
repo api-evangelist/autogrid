@@ -1,0 +1,257 @@
+generated: '2026-07-27'
+method: searched
+source: https://sunspec.org/wp-content/uploads/2009/03/AutoGrid_CSIP_PICS_CS000074.xlsx
+note: 'Verbatim extraction of the SunSpec Alliance IEEE 2030.5 / CSIP Protocol Implementation Conformance
+  Statement workbook published for AutoGrid certificate CS-000074. Values are transcribed as published;
+  nothing is inferred. The workbook is the closest thing AutoGrid has to a machine-readable contract:
+  it declares the certified server implementation and the lab test cases it passed. The certificate PDF
+  is mirrored at conformance/documents/autogrid-sunspec-ieee-2030-5-csip-certificate-CS-000074.pdf.'
+certificate:
+  number: CS-000074
+  type: IEEE 2030.5/CSIP
+  device_category: Server
+  company: AutoGrid Systems, Inc.
+  company_address: 255 Shoreline Drive, Suite 350, Redwood City, CA 94065, United States
+  test_laboratory: Intertek
+  supervising_test_engineer: Niveditha Lakshminarayan
+  test_completion_date: '2023-12-12'
+  certificate_issued_date: '2024-01-22'
+  certificate_signer: Dylan Tansy
+  pics_template_version: '1.3'
+  certificate_pdf: https://sunspec.org/wp-content/uploads/2024/01/AutoGrid-Cert-CS-000074.pdf
+  registry: https://sunspec.org/contributing-members/autogrid-2/
+implementation:
+  product_name: AutoGrid Flex
+  product_model: Flex 2030.5 server
+  product_object_id: 1.3.6.1.4.1.44003.10000.1.1
+  software_name: ieee-2030-5
+  software_version: '1.0'
+  software_checksum: sha256:cd12c901b5fc630f9b669f081d3729fd02f0d39db45b42ed2fed8c571baf4565
+  operating_environment: Cloud
+  operating_system: N/A
+  cloud_platform_provider: AWS, Azure
+test_results:
+  total: 66
+  pass: 64
+  not_applicable: 2
+  fail: 0
+  suites:
+    AGG: Aggregator operation
+    BASIC: DER identification, group management and inverter control
+    COMM: Discovery and security
+    CORE: Core 2030.5 function sets
+    ERR: Error scenarios
+    MAINT: Maintenance
+    UTIL: Utility - aggregator operations
+  tests:
+  - test: AGG-001
+    description: Aggregator Operation Subscription [A, S]
+    result: Pass
+  - test: AGG-002
+    description: Aggregator Event - 2 DERP, 2 DDERC, 0 DERC [A, S]
+    result: Pass
+  - test: AGG-003
+    description: Aggregator Event - 1 DERP, 0 DDERC, 1 DERC [A, S]
+    result: Pass
+  - test: AGG-004
+    description: Aggregator Event - 1 DERP, 1 DDERC, 1 DERC [A, S]
+    result: Pass
+  - test: AGG-005
+    description: Aggregator Event - 1 DERP, 1 DDERC, 2 Non-overlapping Similar DERC [A, S]
+    result: Pass
+  - test: AGG-006
+    description: Aggregator Event - 2 DERP, 2 DDERC, 2 Non-overlapping Similar DERC [A, S]
+    result: Pass
+  - test: AGG-007
+    description: Aggregator Event - 2 DERP, 2 DDERC, 2 Overlapping Similar DERC - System DERC followed
+      by Transformer DERC before Start of System DERC [A, S]
+    result: Pass
+  - test: AGG-008
+    description: Aggregator Event - 2 DERP, 2 DDERC, 2 Overlapping Similar DERC - Transformer DERC followed
+      by System DERC [A, S]
+    result: Pass
+  - test: AGG-009
+    description: Aggregator Event - 2 DERP, 2 DDERC, 2 Overlapping Similar DERC - Transformer DERC followed
+      by System DERC after Start of System Event [A, S]
+    result: Pass
+  - test: AGG-010
+    description: Aggregator Event - 2 DERP, 2 DDERC, 2 Overlapping Independent DERC - System DERC followed
+      by Transformer DERC before Start of System DERC [A, S]
+    result: Pass
+  - test: AGG-011
+    description: Aggregator Event - 2 DERP, 2 DDERC, 2 Overlapping Independent DERC - Transformer DERC
+      followed by System DERC [A, S]
+    result: Pass
+  - test: AGG-012
+    description: Aggregator Event - 2 DERP, 2 DDERC, 2 Overlapping Independent DERC - Transformer DERC
+      followed by System DERC after Start of System Event [A, S]
+    result: Pass
+  - test: BASIC-001
+    description: DER Identification [C, A, S]
+    result: Pass
+  - test: BASIC-002
+    description: Basic Group Management [C, A, S]
+    result: Pass
+  - test: BASIC-003
+    description: Advanced Group Management [C, A, S]
+    result: Pass
+  - test: BASIC-004
+    description: Basic Inverter Control (Low/High Voltage Ride-Through) [C, A, S]
+    result: Pass
+  - test: BASIC-005
+    description: Basic Inverter Control (Low/High Frequency Ride -Through) [C, A, S]
+    result: Pass
+  - test: BASIC-006
+    description: Basic Inverter Control (Volt/Var) [C, A, S]
+    result: Pass
+  - test: BASIC-007
+    description: Basic Inverter Control (Ramp Rates) [C, A, S]
+    result: Pass
+  - test: BASIC-008
+    description: Basic Inverter Control (Fixed Power Factor) [C, A, S]
+    result: Pass
+  - test: BASIC-009
+    description: Basic Inverter Control (Connect/Disconnect) [C, A, S]
+    result: Pass
+  - test: BASIC-010
+    description: Basic Inverter Control (Limit Max Active Power Mode) [C, A, S]
+    result: Pass
+  - test: BASIC-011
+    description: Basic Inverter Control (Volt-Watt) [C, A, S]
+    result: Pass
+  - test: BASIC-012
+    description: Basic Inverter Control (Frequency-Watt) [C, A, S]
+    result: Pass
+  - test: BASIC-015
+    description: Advanced Inverter Control [C, A, S]
+    result: Pass
+  - test: BASIC-016
+    description: Event - 2 DERP, 2 DDERC, 0 DERC [C, A, S]
+    result: Pass
+  - test: BASIC-017
+    description: Event - 1 DERP, 0 DDERC, 1 DERC [C, A, S]
+    result: Pass
+  - test: BASIC-018
+    description: Event -1 DERP, 1 DDERC, 1 DERC [C, A, S]
+    result: Pass
+  - test: BASIC-019
+    description: Event - 1 DERP, 1 DDERC, 2 Non-overlapping Similar DERC [C, A, S]
+    result: Pass
+  - test: BASIC-020
+    description: Event - 2 DERP, 2 DDERC, 2 Non-overlapping Similar DERC [C, A, S]
+    result: Pass
+  - test: BASIC-021
+    description: Event - 2 DERP, 2 DDERC, 2 Overlapping Similar DERC - System DERC followed by Service
+      Point DERC before Start of System DERC [C, A, S]
+    result: Pass
+  - test: BASIC-022
+    description: Event - 2 DERP, 2 DDERC, 2 Overlapping Similar DERC - Service Point DERC followed by
+      System DERC [C, A, S]
+    result: Pass
+  - test: BASIC-023
+    description: Event - 2 DERP, 2 DDERC, 2 Overlapping Similar DERC - System DERC followed by Service
+      Point DERC after Start of System Event [C, A, S]
+    result: Pass
+  - test: BASIC-024
+    description: Event - 2 DERP, 2 DDERC, 2 Overlapping Independent DERC - System DERC followed by Service
+      Point DERC before Start of System DERC [C, A, S]
+    result: Pass
+  - test: BASIC-025
+    description: Event - 2 DERP, 2 DDERC, 2 Overlapping Independent DERC - Service Point DERC followed
+      by System DERC [C, A, S]
+    result: Pass
+  - test: BASIC-026
+    description: Event - 2 DERP, 2 DDERC, 2 Overlapping Independent DERC - System DERC followed by Service
+      Point DERC after Start of System Event [C, A, S]
+    result: Pass
+  - test: BASIC-027
+    description: Alarms [C, A, S]
+    result: Pass
+  - test: BASIC-028
+    description: Inverter Status [C, A, S]
+    result: Pass
+  - test: BASIC-029
+    description: Inverter Meter Reading [C, A, S]
+    result: Pass
+  - test: COMM-002
+    description: Basic Discovery (Out-of-Band) [C, A, S]
+    result: Pass
+  - test: COMM-003
+    description: Basic Security [C,A,S]
+    result: Pass
+  - test: COMM-004
+    description: Advanced Security [C, A, S]
+    result: Pass
+  - test: CORE-003
+    description: Polling Interaction [C, A]
+    result: Pass
+  - test: CORE-005
+    description: Basic Time [C, A, S]
+    result: Pass
+  - test: CORE-009
+    description: Advanced End Device [C, A, S]
+    result: Pass
+  - test: CORE-010
+    description: Function Set Assignments [C, A, S]
+    result: Pass
+  - test: CORE-011
+    description: Advanced Function Set Assignments [C, A, S]
+    result: Pass
+  - test: CORE-012
+    description: Basic DER Program/Control [C, A, S]
+    result: Pass
+  - test: CORE-013
+    description: Advanced DER Program/Control [C, A, S]
+    result: Pass
+  - test: CORE-014
+    description: Basic DER Settings (Power Generating) [C, A, S]
+    result: Pass
+  - test: CORE-018
+    description: Basic Subscription [A, S]
+    result: Pass
+  - test: CORE-019
+    description: Advanced Subscription [A, S]
+    result: Pass
+  - test: CORE-021
+    description: Randomized Events [C, A, S]
+    result: Pass
+  - test: CORE-022
+    description: Responses [C, A, S]
+    result: Pass
+  - test: ERR-001
+    description: Error Scenario 1 [C, A]
+    result: Pass
+  - test: ERR-002
+    description: Error Scenario 2 [A]
+    result: Pass
+  - test: MAINT-001
+    description: Inverter Maintenance (Out-Of-Band) [A, S]
+    result: Pass
+  - test: MAINT-002
+    description: Inverter Maintenance (In-Band) [A, S]
+    result: NOT APPLICABLE
+  - test: MAINT-003
+    description: Group Maintenance [A, S]
+    result: Pass
+  - test: MAINT-004
+    description: Maintenance of Controls [A, S]
+    result: Pass
+  - test: MAINT-005
+    description: Maintenance of Programs [A, S]
+    result: Pass
+  - test: MAINT-006
+    description: Maintenance of Subscriptions [A, S]
+    result: NOT APPLICABLE
+  - test: UTIL-001
+    description: ''
+    result: Pass
+    note: description cell is blank in the published PICS workbook
+  - test: UTIL-002
+    description: Utility - Aggregator Operations Commissioning [A, S]
+    result: Pass
+  - test: UTIL-003
+    description: Utility - Aggregator Operations Group Assignments Retrieval [A, S]
+    result: Pass
+  - test: UTIL-004
+    description: Utility - Aggregator Operations DER Retrieval [A, S]
+    result: Pass

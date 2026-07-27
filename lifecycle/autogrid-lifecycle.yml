@@ -1,0 +1,88 @@
+generated: '2026-07-27'
+method: searched
+source: >
+  Live probes of auto-grid.com and its subdomains, the Uplight acquisition press release,
+  the OpenADR and SunSpec certified-product registries, and Wayback Machine CDX queries.
+  All 2026-07-27.
+note: >
+  AutoGrid publishes no API versioning policy, no deprecation policy, no SLA and no status
+  page - it publishes nothing at all. What this artifact records instead is the PLATFORM
+  lifecycle: an acquired company whose brand surface has been retired into its acquirer,
+  with certifications that are still listed but no longer maintained under the AutoGrid
+  name. Recording this is the point - a consumer looking at AutoGrid needs to know the
+  surface is gone and where it went.
+status: retired
+status_detail: >
+  The AutoGrid brand no longer operates a web, developer or documentation presence. The
+  products (AutoGrid Flex, AutoGrid DROMS) live on inside Uplight. No StatusPage or
+  Deprecation pointer is emitted in apis.yml because neither a status page nor a
+  deprecation policy exists - the surface was withdrawn without either.
+timeline:
+- date: '2011-04-06'
+  event: GitHub organization github.com/auto-grid created; company founded 2011 by Amit Narayan.
+  source: https://api.github.com/orgs/auto-grid
+- date: '2012-11-08'
+  event: OpenADR 2.0a Declaration of Conformity signed for OpenDR Server 2.0 (VTN role).
+  source: https://openadr.memberclicks.net/assets/CertificationDocs/AutoGrid/20a/DeclarationOfConformity_AutoGrid_signed_off.pdf
+- date: '2013-08-14'
+  event: OpenADR 2.0b Declaration of Conformity signed for OpenDR Server 2.0 (VTN role).
+  source: https://openadr.memberclicks.net/assets/CertificationDocs/AutoGrid/AutoGrid_DoC.pdf
+- date: '2020-01-24'
+  event: >
+    AutoGrid and Schneider Electric announce an integrated ADMS + DERMS solution exchanging
+    data and control signals over IEEE 2030.5.
+  source: https://www.businesswire.com/news/home/20200124005055/en/AutoGrid-and-Schneider-Electric-Announce-a-Fully-Integrated-ADMS-and-DERMS-Solution-to-Digitize-the-Electric-Grid-of-the-Future
+- date: '2021-01-04'
+  event: >
+    AWS Industries blog co-authored with AutoGrid describes the Flex cloud security
+    architecture and names SOC 2, NERC CIP, ISO 27001, NIST 800-53 and GDPR compliance work.
+  source: https://aws.amazon.com/blogs/industries/how-autogrid-supports-compliance-using-aws-cloud-security-services/
+- date: '2022-12-07'
+  event: Last-Modified date still served by the auto-grid.com redirect stub.
+  source: https://auto-grid.com/
+- date: '2023-12-12'
+  event: Intertek completes SunSpec IEEE 2030.5 / CSIP certification testing of AutoGrid Flex.
+  source: https://sunspec.org/wp-content/uploads/2009/03/AutoGrid_CSIP_PICS_CS000074.xlsx
+- date: '2023-12-14'
+  event: Uplight announces the acquisition of AutoGrid from Schneider Electric.
+  source: https://uplight.com/press/uplight-to-acquire-autogrid/
+- date: '2024-01-22'
+  event: SunSpec Alliance awards certificate CS-000074 to AutoGrid Systems, Inc. for AutoGrid Flex.
+  source: https://sunspec.org/wp-content/uploads/2009/03/AutoGrid_Cert_CS-000074.pdf
+- date: '2024'
+  event: Acquisition closes; auto-grid.com becomes a meta-refresh stub pointing at uplight.com.
+  source: https://uplight.com/uplight-acquires-autogrid/
+- date: '2026-07-24'
+  event: >
+    The Let's Encrypt certificate for auto-grid.com expires and is not renewed; plain HTTPS
+    clients now fail closed on the domain (curl exit 60). Confirmed again 2026-07-27.
+  source: security/autogrid-domain-security.yml
+versioning:
+  scheme: none-published
+  detail: >
+    No API version scheme of AutoGrid's own. Version identity is carried entirely by the
+    protocol standards it certified against - OpenADR profile 2.0a / 2.0b, IEEE 2030.5-2018
+    CSIP - and by product firmware/software versions in the certification records
+    (OpenDR Server firmware 1.7 and 1; ieee-2030-5 software 1.0).
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: >
+    No deprecation policy, no RFC 8594 Sunset/Deprecation header support, no end-of-life
+    notice. The entire developer surface was withdrawn silently when the domain was parked.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+successor:
+  company: Uplight
+  website: https://uplight.com/
+  documentation: https://docs.uplight.com/
+  documentation_access: >
+    Login-gated ReadMe (SuperHub) hub - every content route redirects anonymous visitors to
+    dash.readme.com/to/uplight. https://api.uplight.com/ answers HTTP 401 with
+    {"errors":[{"message":"Invalid or no token provided"}]}. Partner and customer access only.
+  note: >
+    Recorded as context. The Uplight surface is not an AutoGrid property and is not scored
+    here; if it ever opens, it belongs in an Uplight provider record.
+deprecated_operations: []

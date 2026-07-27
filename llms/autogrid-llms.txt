@@ -1,0 +1,43 @@
+# AutoGrid
+
+> AutoGrid Systems, Inc. was a United States grid-technology company (founded 2011 in Redwood City by Amit Narayan) that built AI/ML software for distributed energy resource management (DERMS), virtual power plants and automated demand response - the AutoGrid Flex and AutoGrid DROMS platforms - sold to investor-owned utilities, retailers and aggregators. Schneider Electric took control of the company and then sold it to Uplight in a deal announced 14 December 2023 and closed in early 2024. The AutoGrid brand no longer operates a website, developer portal or documentation surface: auto-grid.com serves a 270-byte meta-refresh to uplight.com on an expired TLS certificate, and every developer/api/docs subdomain fails to resolve.
+
+## The honest API posture
+
+AutoGrid publishes **no OpenAPI, no GraphQL schema, no MCP server, no SDK, no sandbox and no developer portal**. It never did. That does not mean it had no machine-readable contract - its contract is expressed as **protocol conformance**, and the certifying bodies still publish it:
+
+- **OpenADR 2.0a VTN (server)** - AutoGrid DROMS, cloud-hosted, Simple HTTP + XMPP, pull and push. Declaration of Conformity signed 8 November 2012.
+- **OpenADR 2.0b VTN (server)** - OpenDR Server 2.0. PICS declares both A and B profiles, all three transports, the EiEvent / EiOpt / EiReport / EiRegisterParty / OadrPoll services, SHA2 security (TLS 1.2, x.509 RSA + ECC), and B-schema validation of every VTN payload. Signed 14 August 2013.
+- **IEEE 2030.5-2018 / CSIP server** - AutoGrid Flex, SunSpec Alliance certificate **CS-000074**, tested by Intertek 12 December 2023, awarded 22 January 2024. 64 test cases passed, 2 not applicable; software runs as a cloud service on AWS and Azure.
+
+Authentication on both certified surfaces is **mutual TLS with x.509 client certificates**, not API keys or OAuth. Access was always commercial: a utility or aggregator counterparty, never self-serve.
+
+## Where this capability lives now
+
+- [Uplight](https://uplight.com/) - acquirer; the DERMS/VPP products continue under this brand
+- [Uplight developer documentation](https://docs.uplight.com/) - live ReadMe hub, but every content route redirects anonymous visitors to a login; `https://api.uplight.com/` answers HTTP 401 `{"errors":[{"message":"Invalid or no token provided"}]}`. Partner and customer access only.
+- [Uplight / AutoGrid acquisition press release](https://uplight.com/press/uplight-to-acquire-autogrid/)
+- [DERMS solution guide (AutoGrid)](https://uplight.com/resources/derms/)
+
+## Certification records (primary sources)
+
+- [SunSpec Alliance - AutoGrid certified products](https://sunspec.org/contributing-members/autogrid-2/)
+- [SunSpec certificate CS-000074 (PDF)](https://sunspec.org/wp-content/uploads/2009/03/AutoGrid_Cert_CS-000074.pdf)
+- [SunSpec IEEE 2030.5 CSIP PICS workbook (XLSX)](https://sunspec.org/wp-content/uploads/2009/03/AutoGrid_CSIP_PICS_CS000074.xlsx)
+- [OpenADR certified product - AutoGrid DROMS (2.0a VTN)](https://products.openadr.org/product/autogrid-systems-inc-autogrid-droms/)
+- [OpenADR certified product - OpenDR Server 2.0 (2.0b VTN)](https://products.openadr.org/product/autogrid-systems-inc-opendr-server-2-0-2/)
+
+## Artifacts in this repo
+
+- [Conformance profile](https://raw.githubusercontent.com/api-evangelist/autogrid/refs/heads/main/conformance/autogrid-conformance.yml)
+- [IEEE 2030.5 / CSIP PICS + lab test results](https://raw.githubusercontent.com/api-evangelist/autogrid/refs/heads/main/conformance/autogrid-ieee-2030-5-csip-pics.yml)
+- [OpenADR 2.0a / 2.0b PICS + Declarations of Conformity](https://raw.githubusercontent.com/api-evangelist/autogrid/refs/heads/main/conformance/autogrid-openadr-pics.yml)
+- [Lifecycle - acquisition timeline and retirement](https://raw.githubusercontent.com/api-evangelist/autogrid/refs/heads/main/lifecycle/autogrid-lifecycle.yml)
+- [Packages - none published, registries searched](https://raw.githubusercontent.com/api-evangelist/autogrid/refs/heads/main/packages/autogrid-packages.yml)
+- [Well-known discovery probes - nothing published](https://raw.githubusercontent.com/api-evangelist/autogrid/refs/heads/main/well-known/autogrid-well-known.yml)
+- [Domain security probe](https://raw.githubusercontent.com/api-evangelist/autogrid/refs/heads/main/security/autogrid-domain-security.yml)
+- [Review](https://raw.githubusercontent.com/api-evangelist/autogrid/refs/heads/main/review.yml)
+
+## Do not expect
+
+There is no AutoGrid API to call, no key to request and no test environment. Any tool or agent that needs DERMS/VPP capability should route to Uplight under a commercial agreement, or to an OpenADR / IEEE 2030.5 implementation, not to an AutoGrid endpoint. No AutoGrid host resolves except the parked corporate domain, and that one fails TLS verification.

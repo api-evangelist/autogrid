@@ -1,0 +1,26 @@
+generated: '2026-07-27'
+method: searched
+source: npm, PyPI, RubyGems, Packagist, crates.io, NuGet and GitHub probed 2026-07-27
+note: >
+  AutoGrid ships NO client libraries or SDKs. Nothing was ever published for its platform:
+  integration happened over standardised protocols (OpenADR 2.0 VTN, IEEE 2030.5 CSIP
+  server) under commercial contract, where the counterparty builds to the standard rather
+  than to a vendor SDK. Every registry hit for the string "autogrid" is an unrelated
+  CSS/UI grid library from another author. No SDKs pointer is emitted.
+packages: []
+candidates: []
+registries_searched:
+- {registry: npm, query: autogrid, result: '10 matches, all unrelated UI/CSS grid components (autogrid "Automatic CSS grid generator", @chris-c-brine/autogrid, @hi-ui/schema-auto-grid, @theopenweb/auto-grid). None first-party.', first_party: false}
+- {registry: pypi, query: 'autogrid, auto-grid', result: HTTP 404 for both, first_party: false}
+- {registry: rubygems, query: autogrid, result: empty result set, first_party: false}
+- {registry: packagist, query: autogrid, result: 'only magehack/autogrid, a Magento grid helper from a 2014 hackathon', first_party: false}
+- {registry: crates.io, query: autogrid, result: 0 crates, first_party: false}
+- {registry: nuget, query: autogrid, result: '14 hits (AutoGrid, SpicyTaco.AutoGrid, Jerro.AutoGrid, Tonic.AutoGrid, TqkLibrary.AutoGrid) - all WPF/XAML layout controls', first_party: false}
+- {registry: github, org: auto-grid, result: '3 public repos - external-storage, nifi, null - every one a fork of an unrelated third-party project. No SDK, no spec, no sample client.'}
+- {registry: github, org: ag-experimental, result: 'AutoGrid-affiliated organization (profile blog https://www.auto-grid.com, United States, created 2022-02-17) with 0 public repositories.'}
+- {registry: github, query: 'autogrid type:org', result: '5 organizations; only auto-grid and ag-experimental are AutoGrid Systems. autogrid, AutoGridComputer and AutoGrid-PLL are unrelated and empty.'}
+integration_path: >
+  The supported integration route was protocol-level, not package-level: an OpenADR 2.0a/2.0b
+  VEN talking to the certified AutoGrid VTN, or an IEEE 2030.5 client talking to the certified
+  Flex 2030.5 server, authenticated with x.509 client certificates. See
+  conformance/autogrid-conformance.yml.
