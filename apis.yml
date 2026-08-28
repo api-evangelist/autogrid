@@ -46,6 +46,17 @@ tags:
 - IEEE 2030.5
 - Smart Grid
 - Conformance
+deliveryModel:
+  model: library
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Library · distributed through package registries, no callable service
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 created: '2026-07-27'
 modified: '2026-07-27'
 specificationVersion: '0.23'
