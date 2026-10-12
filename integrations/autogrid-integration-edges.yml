@@ -1,0 +1,34 @@
+edges:
+- partner_name: OpenADR
+  partner: null
+  type: contract
+  channel: network-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://products.openadr.org/
+  contract_reference:
+    register: OpenADR Alliance certified product database
+    spec_file: null
+    role: certified-product
+    registered_name: AutoGrid Systems, Inc.
+    matched_domain: auto-grid.com
+    certified_products:
+    - product: AutoGrid DROMS
+      type: VTN (server)
+      lapsed: false
+      profile: 2.0a
+      page: https://products.openadr.org/product/autogrid-systems-inc-autogrid-droms/
+    - product: OpenDR Server 2.0
+      type: VTN (server)
+      lapsed: false
+      profile: 2.0b
+      page: https://products.openadr.org/product/autogrid-systems-inc-opendr-server-2-0-2/
+    profiles:
+    - 2.0a
+    - 2.0b
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+generated: '2026-10-13'
+method: searched
+checked:
+- https://products.openadr.org/
