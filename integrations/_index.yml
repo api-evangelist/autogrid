@@ -35,3 +35,15 @@
     detected: '2026-10-13'
   status: not-a-workflow
   arazzo: null
+- slug: autogrid-aws-marketplace
+  label: AWS Marketplace
+  partner: amazon-web-services
+  partner_name: AWS Marketplace
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=297e5057-82de-4d23-bbe1-ee67c6da4303
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
