@@ -49,3 +49,6 @@ checked:
 - https://aws.amazon.com/marketplace/
 - https://products.openadr.org/
 marketplace_apps: []
+source:
+- https://aws.amazon.com/marketplace/
+- https://products.openadr.org/
