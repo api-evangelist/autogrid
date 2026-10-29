@@ -1,4 +1,4 @@
-# AutoGrid (autogrid)
+# AutoGrid
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,82 +64,90 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-AutoGrid Systems is a United States grid-technology company founded in 2011 by Amit Narayan in Redwood City, California, that built AI and machine-learning software for distributed energy resource management (DERMS), virtual power plants, and automated demand response under the AutoGrid Flex platform, selling to investor-owned utilities, retailers, and aggregators rather than to end consumers. It sits on the grid-tech / DERMS layer of the energy value chain — a buyer and orchestrator of utility and device data, not a data custodian — so no Green Button, Consumer Data Right, or smart-meter data-sharing obligation attaches to it. Schneider Electric took control of AutoGrid and then sold it to Uplight in a deal announced 14 December 2023 and closed in early 2024; auto-grid.com now serves only a 270-byte meta-refresh to uplight.com (on an expired TLS certificate as of 27 July 2026) and every developer, docs, api, and data subdomain fails to resolve. Its API posture is therefore honestly none-published — no public developer portal, no OpenAPI, no consumer usage API, and no open market data. The successor surface at docs.uplight.com is real but fully login-gated, redirecting anonymous visitors to a ReadMe dashboard login, and api.uplight.com answers HTTP 401 with "Invalid or no token provided" — partner and customer access only.
+AutoGrid Systems is a United States grid-technology company founded in 2011 by Amit Narayan in Redwood City, California, that built AI and machine-learning software for distributed energy resource management (DERMS), virtual power plants, and automated demand response under the AutoGrid Flex platform, selling to investor-owned utilities, retailers, and aggregators rather than to end consumers. It sits on the grid-tech / DERMS layer of the energy value chain - a buyer and orchestrator of utility and device data, not a data custodian - so no Green Button, Consumer Data Right, or smart-meter data-sharing obligation attaches to it. Schneider Electric took control of AutoGrid and then sold it to Uplight in a deal announced 14 December 2023 and closed in early 2024; auto-grid.com now serves only a 270-byte meta-refresh to uplight.com (on an expired TLS certificate as of 27 July 2026) and every developer, docs, api, and data subdomain fails to resolve. Its API posture is therefore honestly none-published - no public developer portal, no OpenAPI, no SDK, no consumer usage API, and no open market data. Its machine-readable contract is instead expressed as protocol conformance, and that is real and still published by the certifying bodies. AutoGrid is a certified OpenADR 2.0a and 2.0b VTN (server) - AutoGrid DROMS and OpenDR Server 2.0, Simple HTTP + XMPP, pull and push - and holds SunSpec Alliance certificate CS-000074 for AutoGrid Flex as an IEEE 2030.5-2018 / CSIP server, tested by Intertek on 12 December 2023 and awarded 22 January 2024. Both surfaces authenticate with mutual TLS x.509 client certificates and were reachable only under commercial contract. The successor surface at docs.uplight.com is real but fully login-gated, redirecting anonymous visitors to a ReadMe dashboard login, and api.uplight.com answers HTTP 401 with "Invalid or no token provided" - partner and customer access only.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/autogrid/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/autogrid/refs/heads/main/apis.yml)
+**Areas:** Energy · United States · Utilities · Electricity · Grid · DERMS · Distributed Energy Resources · Virtual Power Plant · Demand Response · Acquired · OpenADR · IEEE 2030.5
 
-## Tags
+## AutoGrid on APIs.io
 
-- Energy
-- United States
-- Utilities
-- Electricity
-- Grid
-- DERMS
-- Distributed Energy Resources
-- Virtual Power Plant
-- Demand Response
-- Acquired
-- OpenADR
-- IEEE 2030.5
-- Smart Grid
-- Conformance
+Everything profiled for AutoGrid is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/autogrid/](https://apis.io/providers/autogrid/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-27
-- **Modified:** 2026-07-27
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (2)
 
-No public, documented APIs were found for AutoGrid.
+Model Context Protocol servers that expose the API to agents.
 
-The company's primary domain, `auto-grid.com`, resolves (35.208.127.125) but serves a single 270-byte HTML meta-refresh to `https://uplight.com` on **every** path — `/`, `/developers`, `/api`, `/docs`, `/robots.txt`, `/openapi.json`, `/.well-known/openid-configuration`, and `/favicon.ico` all return the identical document. Its Let's Encrypt certificate (CN=auto-grid.com) **expired on 24 July 2026**, so plain HTTPS requests fail certificate verification. No `api.`, `developer.`, `developers.`, `data.`, `portal.`, `app.`, `flex.`, or `partner.` subdomain resolves in DNS; `docs.auto-grid.com` points at `ghs.google.com` and returns a Google 404.
+- [Moved to /providers/autogrid/](https://apis.io/servers/autogrid/autogrid/)
+- [Moved to /providers/autogrid/](https://apis.io/servers/autogrid/autogrid-2/)
 
-AutoGrid's GitHub organization, [github.com/auto-grid](https://github.com/auto-grid), holds three public repositories — all forks of unrelated third-party projects (`external-storage`, `nifi`, `null`). No API contract, SDK, or specification is published there.
+#### Security (1)
 
-The product now lives inside Uplight. `docs.uplight.com` is a live ReadMe hub, but every content path (`/developer/docs`, `/developer/reference`, `/developer/page/contact-support`) redirects anonymous visitors to `dash.readme.com/to/uplight` for login, and `api.uplight.com` returns `401 {"errors":[{"message":"Invalid or no token provided"}]}`. Access is partner/customer only.
+Authentication, trust centre, and vulnerability disclosure.
 
-## Mandate and Data Posture
+- [Autogrid Domain Security](https://apis.io/security/autogrid/autogrid-domain-security/)
 
-- **Mandate regime:** none. AutoGrid is a software vendor and DER orchestrator, not a utility, retailer, or metering data custodian. Green Button / NAESB ESPI obligations attach to data custodians; the Australian Consumer Data Right and Ontario's Green Button regulation do not reach a US DERMS vendor.
-- **Mandate status:** not-applicable. No obligation was found, and none is claimed by the company.
-- **Data standard:** OpenADR 2.0a + 2.0b (VTN/server) and IEEE 2030.5-2018 / CSIP (server) — **certified, with published evidence** (see below). Not found: CTA-2045, IEC CIM 61968/61970, OCPP, OCPI, Green Button/ESPI.
-- **Consumer data API:** no. Nothing lets a third party obtain an individual customer's usage or billing data from AutoGrid.
-- **Open market data:** no. AutoGrid publishes no grid, market, or system data anonymously.
-- **Access gate:** none-published for AutoGrid itself; the successor product is reached only through a Uplight partner/customer login.
+## Where to find this API
 
-## Certified Protocol Surface
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-AutoGrid published no API description of its own, but its contract exists as **protocol conformance**, and the certifying bodies still publish it:
-
-| Standard | Role | Product | Evidence |
-|---|---|---|---|
-| OpenADR 2.0a | VTN (server) | AutoGrid DROMS (firmware 1.7, cloud) | [OpenADR registry](https://products.openadr.org/product/autogrid-systems-inc-autogrid-droms/) · DoC signed 2012-11-08 |
-| OpenADR 2.0b | VTN (server) | OpenDR Server 2.0 | [OpenADR registry](https://products.openadr.org/product/autogrid-systems-inc-opendr-server-2-0-2/) · PICS v1.0.1 · DoC signed 2013-08-14 |
-| IEEE 2030.5-2018 / CSIP | Server | AutoGrid Flex ("Flex 2030.5 server") | [SunSpec certificate CS-000074](https://sunspec.org/wp-content/uploads/2009/03/AutoGrid_Cert_CS-000074.pdf) · Intertek, tested 2023-12-12, awarded 2024-01-22 |
-
-The OpenADR 2.0b PICS declares both A and B profiles, SimpleHTTP-Pull, SimpleHTTP-Push and XMPP-Push transports, the EiEvent / EiOpt / EiReport / EiRegisterParty / OadrPoll services, SHA2 security (TLS 1.2, x.509 SHA2, RSA + ECC), and B-schema validation of all fifteen VTN-generated payloads. The IEEE 2030.5 PICS workbook records 64 passing test cases and 2 not-applicable across aggregator operation, DER identification and group management, the full inverter-control set, events, alarms, meter reading, subscriptions and maintenance. Both surfaces authenticate with **mutual TLS x.509 client certificates** — no API key, no OAuth.
-
-Captured in [`conformance/`](conformance/), with the certificate, PICS and Declaration-of-Conformity PDFs mirrored under [`conformance/documents/`](conformance/documents/).
-
-## Common Properties
-
-- [Protocol conformance profile](conformance/autogrid-conformance.yml)
-- [IEEE 2030.5 / CSIP PICS + lab test results](conformance/autogrid-ieee-2030-5-csip-pics.yml)
-- [OpenADR 2.0a / 2.0b PICS + Declarations of Conformity](conformance/autogrid-openadr-pics.yml)
-- [Lifecycle (acquisition timeline, retirement)](lifecycle/autogrid-lifecycle.yml)
-- [Packages — none published](packages/autogrid-packages.yml)
-- [Well-known probes — nothing published](well-known/autogrid-well-known.yml)
-- [Domain security probe](security/autogrid-domain-security.yml)
-- [llms.txt](llms/autogrid-llms.txt)
 - [Website](https://auto-grid.com/)
-- [Parent Company](https://uplight.com/)
-- [GitHub Organization](https://github.com/auto-grid)
-- [About](https://uplight.com/resources/derms/)
-- [Press Release](https://uplight.com/press/uplight-to-acquire-autogrid/)
+- [Compliance](https://sunspec.org/contributing-members/autogrid-2/)
+- [GitHub](https://github.com/auto-grid)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 9.6** — minimal · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.0 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 0.0 |
+| Access clarity | 7.9 |
+
+**Agent readiness 2.2** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 13.1** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/autogrid/](https://apis.io/providers/autogrid/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for AutoGrid: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/autogrid/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
